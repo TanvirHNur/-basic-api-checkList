@@ -1,5 +1,5 @@
 const updateUser = () => {
-    fetch('https://randomuser.me/api/?results=100')
+    fetch('https://randomuser.me/api')
     .then(res => res.json())
     .then(data => displayUser(data.results))
 }
@@ -9,10 +9,11 @@ const displayUser = users => {
     // const users = randomUsers.results;
     users.forEach(user => {
         const userContainer = document.getElementById('users')
+        userContainer.innerHTML = ''
         const div = document.createElement('div');
         div.classList = 'user m-5'
         div.innerHTML = `
-        <img src="${user.picture.thumbnail}" alt="" class="img-thumbnail rounded">
+        <img src="${user.picture.thumbnail}" alt="" class="img-thumbnail w-25 rounded">
         <h6>Name: ${user.name.title} ${user.name.first} ${user.name.last}</h6>
             <h6>Email: ${user.email}</h6>
             <h6>Gender: ${user.gender}</h6>

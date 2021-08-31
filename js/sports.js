@@ -10,9 +10,21 @@ const searchteams = () => {
 
 const displayTeam = (teams) => {
     const searchResult = document.getElementById('search-result');
-    if (teams.length === 0){
-        searchResult.innerHTML =`
-        <h1>Nothing found</h1>`
+    if (teams === null){
+        const div1 = document.createElement('div');
+        div1.classList =  "mx-auto w-50 m-5"
+        div1.innerHTML =`
+        <h1>Nothing found</h1>
+        <h4>No results containing all your search terms were found.</h4> 
+      <ul>
+        Suggestions:
+        <li>Make sure that all words are spelled correctly.</li>
+        <li>Try different keywords.</li>
+        <li>
+            Try fewer keywords.
+            </li>
+      </ul>`
+        searchResult.appendChild(div1)
     }
     else{
         teams.forEach( team => {
